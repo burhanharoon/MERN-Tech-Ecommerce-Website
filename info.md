@@ -7,3 +7,4 @@
 7} Adding Mongoose in the project
    -  ```npm i mongoose```
 
+8) Added Schemas for Users Products and Orders
