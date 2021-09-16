@@ -16,7 +16,6 @@ const ProductScreen = ({ match }) => {
   useEffect(() => {
     const id = match.params.id;
     fetchProductById(id);
-
   }, [])
 
   return (
