@@ -6,5 +6,6 @@
 6) Added a ```MONGO_URI = {fetched from the website}``` field in the ```.env``` file
 7} Adding Mongoose in the project
    -  ```npm i mongoose```
-
 8) Added Schemas for Users Products and Orders
+9) Using ```npm i bcryptjs``` to encrypt the password in mongoDB
+10)   Creating a Seedr script to seed data in the DB
