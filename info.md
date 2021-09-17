@@ -9,3 +9,4 @@
 8) Added Schemas for Users Products and Orders
 9) Using ```npm i bcryptjs``` to encrypt the password in mongoDB
 10)   Creating a Seedr script to seed data in the DB
+11)   Fetched data from the website and displayed it in the browser
