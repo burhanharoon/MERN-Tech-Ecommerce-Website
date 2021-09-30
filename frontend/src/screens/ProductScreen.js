@@ -78,7 +78,8 @@ const ProductScreen = ({ match }) => {
                 </ListGroup>
               </Card>
             </Col>
-          </Row>}
+          </Row>
+      }
     </>
   )
 }
