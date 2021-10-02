@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
 import { Loader } from '../components/Loader'
+
 const ProductScreen = ({ match }) => {
 
-
-  // const productList = useSelector((state) => state.productList)
-  // const { loading, error, product } = productList
   const dispatch = useDispatch()
   const productDetails = useSelector(state => state.productDetails)
   const { error, loading, product } = productDetails
