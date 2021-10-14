@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import bodyparser from 'body-parser'
 
 dotenv.config();
 
@@ -10,6 +11,8 @@ connectDB();
 
 const app = express()
 
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.send("Api is running dude damn")
