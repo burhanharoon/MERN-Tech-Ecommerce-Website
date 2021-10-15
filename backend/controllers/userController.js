@@ -1,7 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
-import bcrypt from 'bcryptjs'
 
 
 // @desc    Auth user
@@ -34,12 +33,12 @@ const authUser = asyncHandler(async (req, res) => {
 // @route   POST /api/users/
 // @access  PUBLIC
 
-const addUser = asyncHandler(async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
 
     const { name, email, password } = req.body
-    const userExiests = await User.findOne({ email })
+    const userExists = await User.findOne({ email })
 
-    if (userExiests) {
+    if (userExists) {
         res.status(400)
         throw new Error("User already exists")
     } else {
@@ -59,9 +58,6 @@ const addUser = asyncHandler(async (req, res) => {
             throw new Error('Invalid user data')
         }
     }
-
-
-
 })
 
 // @desc    GET User Profile
@@ -87,6 +83,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
 
 export {
     authUser,
-    addUser,
+    registerUser,
     getUserProfile
 }
