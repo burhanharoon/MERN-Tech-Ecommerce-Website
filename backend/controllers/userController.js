@@ -3,12 +3,10 @@ import User from '../models/userModel.js'
 import generateToken from '../utils/generateToken.js'
 
 // @desc    Auth user
-// @route   GET /api/users/login
+// @route   POST /api/users/login
 // @access  PUBLIC
 
 const authUser = asyncHandler(async (req, res) => {
-    // In order to use res.body data we would have to add 
-
 
     const { email, password } = req.body
 
@@ -30,6 +28,30 @@ const authUser = asyncHandler(async (req, res) => {
 
 })
 
+
+// @desc    GET User Profile
+// @route   GET /api/users/profile
+// @access  PRIVATE
+
+const getUserProfile = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.user._id)
+
+    if (user) {
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin
+        })
+    } else {
+        res.status(404)
+        throw new Error("User not found")
+
+    }
+
+})
+
 export {
-    authUser
+    authUser,
+    getUserProfile
 }
