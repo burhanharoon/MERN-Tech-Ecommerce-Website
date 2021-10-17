@@ -3,15 +3,20 @@ import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from '../cons
 
 export const loginUser = (email, password) => async (dispatch) => {
     try {
+
         dispatch({ type: USER_LOGIN_REQUEST })
-
-        const { data } = await axios.post('/api/users/login', {
-            email,
-            password
-        })
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+        const { data } = await axios.post(
+            '/api/users/login',
+            { email, password },
+            config
+        )
         console.log(data)
-        localStorage.setItem("token", data.token)
-
+        localStorage.setItem("userInfo", JSON.stringify(data))
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data

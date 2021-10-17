@@ -10,7 +10,14 @@ const reducer = combineReducers({
     userLogin: userLoginReducer
 })
 
-const initialState = {}
+// Getting the user info form the local storage and saving it in the initial storage of our reducer
+const userInfoFromStorage = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null
+
+const initialState = {
+    userLogin: { userInfo: userInfoFromStorage }
+}
 
 
 const middleware = [thunk]
